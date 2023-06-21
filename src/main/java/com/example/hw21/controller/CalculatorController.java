@@ -1,14 +1,17 @@
 package com.example.hw21.controller;
 
-import com.example.hw21.service.calculatorService;
+import com.example.hw21.exception.CalculatorException;
+import com.example.hw21.exception.CalculatorException;
+import com.example.hw21.service.CalculatorService;
+import com.example.hw21.service.CalculatorService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class calculatorController {
+public class CalculatorController {
 
-    private final calculatorService calculator = new  calculatorService();
+    private final CalculatorService calculator = new  CalculatorService();
 
     @GetMapping("/calculator")
     public String greating() {
@@ -31,7 +34,7 @@ public class calculatorController {
     }
 
     @GetMapping("/calculator/divide")
-    public String divide(@RequestParam int num1, @RequestParam int num2) {
+    public String divide(@RequestParam int num1, @RequestParam int num2) throws CalculatorException {
         if (num2 == 0) {
             return "Делить на 0 нельзя";
         }

@@ -7,7 +7,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-public class ParametrizedServiceTest {
+public class ParametrizedServiceTest{
     CalculatorService calculatorService = new CalculatorService();
     Stream <Arguments> data(){
         return Stream.of(

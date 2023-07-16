@@ -1,22 +1,15 @@
 package com.example.hw21.service;
-
 import com.example.hw21.exception.CalculatorException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import static org.springframework.test.util.AssertionErrors.*;
-
 public class CalculatorServiceTest {
     CalculatorService calculatorService = new CalculatorService();
-
     @Test
     void sumPositive() {
         assertEquals(10, calculatorService.add(3, 7));
     }
-
     private void assertEquals(int i, int add) {
     }
-
     @Test
     void sumNegative() {
         assertEquals(-10, calculatorService.add(-3, -7));
@@ -44,7 +37,6 @@ public class CalculatorServiceTest {
     void dividePositive() throws CalculatorException {
         assertEquals(4, calculatorService.divide(8, 2));
     }
-
     @Test
     void divideNegative() throws CalculatorException {
         assertEquals(-4, calculatorService.divide(-8, 2));
@@ -54,6 +46,5 @@ public class CalculatorServiceTest {
         Assertions.assertThrows(CalculatorException.class, ()-> {
             calculatorService.divide(12, 0);
         });
-
     }
 }

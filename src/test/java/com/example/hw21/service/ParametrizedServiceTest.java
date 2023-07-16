@@ -7,9 +7,9 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-public class ParametrizedServiceTest{
-    CalculatorService calculatorService = new CalculatorService();
-    Stream <Arguments> data(){
+    public class ParametrizedServiceTest{
+    CalculatorService calc = new CalculatorService();
+    static Stream <Arguments> data(){
         return Stream.of(
                 Arguments.of(1,2),
                 Arguments.of(31,6),
@@ -21,14 +21,14 @@ public class ParametrizedServiceTest{
     @MethodSource("data")
     void add(int num1, int num2){
         int excepted = num1 + num2;
-        int actual = calculatorService.add(num1, num2);
+        int actual = calc.add(num1, num2);
         assertEquals(excepted, actual);
     }
     @ParameterizedTest
     @MethodSource("data")
     void minus(int num1, int num2){
         int excepted = num1 - num2;
-        int actual = calculatorService.minus(num1, num2);
+        int actual = calc.minus(num1, num2);
         assertEquals(excepted, actual);
     }
 
@@ -39,14 +39,14 @@ public class ParametrizedServiceTest{
     @MethodSource("data")
     void multiply(int num1, int num2){
         int excepted = num1 * num2;
-        int actual = calculatorService.multiply(num1, num2);
+        int actual = calc.multiply(num1, num2);
         assertEquals(excepted, actual);
     }
     @ParameterizedTest
     @MethodSource("data")
     void divide(int num1, int num2) throws CalculatorException {
         int excepted = num1 / num2;
-        int actual = calculatorService.divide(num1, num2);
+        int actual = calc.divide(num1, num2);
         assertEquals(excepted, actual);
     }
-}
+    }
